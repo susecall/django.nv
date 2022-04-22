@@ -20,8 +20,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "This is an integration step"
-      - continue-on-error: true
       - run: exit 1
+      - continue-on-error: true
 
   prod:
     runs-on: ubuntu-latest
@@ -31,7 +31,9 @@ jobs:
   artifacts:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "hello" > hello.txt
+      - shell: bash
+      - run: |
+          echo "hello" > hello.txt
       - name: Upload hello.txt
         uses: actions/upload-artifact@v3
         with:
