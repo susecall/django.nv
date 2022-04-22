@@ -19,8 +19,9 @@ jobs:
   integration:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "This is an integration step"
-      - run: exit 1
+      - run: |
+          echo "This is an integration step"
+          exit 1
       - continue-on-error: true
 
   prod:
